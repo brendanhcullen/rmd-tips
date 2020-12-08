@@ -1,0 +1,83 @@
+---
+title: "Demo of knitr chunk options"
+output: 
+  html_document:
+    theme: flatly
+    code_download: true
+    code_folding: hide
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r libraries, class.source = "fold-show"}
+# load libraries
+library(tidyverse)
+library(palmerpenguins)
+```
+
+- use `class.source = "fold-show"` to override global option `code_folding: hide` so the above chunk shows code by default
+
+# Penguin bill dimensions
+
+```{r echo=FALSE}
+plot_or_not <-  TRUE
+```
+
+
+```{r penguins-plot, eval=plot_or_not, fig.path="my_figs/", dev=c("png","pdf"), dev.args=list(family='Palatino'), fig.cap = "My amazing penguins plot"}
+penguins %>%
+  ggplot(aes(
+    x = bill_length_mm,
+    y = bill_depth_mm,
+    group = species
+  )
+  ) +
+  geom_point(aes(
+    color = species,
+    shape = species
+  ),
+  size = 3,
+  alpha = 0.8
+  ) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs(
+    title = "Penguin bill dimensions",
+    subtitle = "Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)",
+    color = "Penguin species",
+    shape = "Penguin species"
+  ) +
+  theme(
+    legend.position = c(0.85, 0.15),
+    legend.background = element_rect(fill = "white", color = NA),
+    plot.title.position = "plot",
+    plot.caption = element_text(hjust = 0, face = "italic"),
+    plot.caption.position = "plot"
+  )
+```
+
+- use `fig.path` to specify where to save output
+- use `dev=c("png","pdf")` to save an both .png and .pdf
+- use `dev.args=list(family='Palatino')` to change font in .pdf output
+- use `fig.cap` to automatically add a figure caption
+- use `eval = <boolean_var>` for conditional evaluation
+
+# Extracting R code
+
+You can extract only R code with `knitr::purl("chunk_opts_demo.Rmd")`, which will save a corresponding .R script.
+
+- Use `documentation = 2` to retain text as well
+- Set `purl=FALSE` for any chunk you don’t want to extract
+- You can turn a .R script into a .Rmd with `knitr::spin()`
+
+# Resources 
+
+- [Github repo](https://github.com/yihui/knitr-examples) with tons of knitr examples
+- [Yihui's documentation](https://yihui.org/knitr/options/) on knitr chunk options
+- [Chapter 11](https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html) of R Markdown Cookbook
