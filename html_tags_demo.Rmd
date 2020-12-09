@@ -1,5 +1,5 @@
 ---
-title: "Demo of divs in R Markdown"
+title: "Demo of HTML tags in R Markdown"
 output: 
   html_document: 
     css: css/custom.css
