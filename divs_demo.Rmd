@@ -1,0 +1,74 @@
+---
+title: "Demo of divs in R Markdown"
+output: 
+  html_document: 
+    css: css/custom.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r libraries, echo = FALSE}
+library(tidyverse)
+```
+
+## Multi-column layouts with Pandoc's fenced divs
+
+- create an "outside" `<div>` container with `::::`
+- add inline CSS attribute `display: flex;`
+- create "inside" `<div>` containers with `:::`
+
+:::: {style="display: flex;"}
+
+::: {}
+Here is a plot with black points
+
+```{r echo=FALSE}
+mpg %>% 
+  ggplot(aes(displ, hwy)) + 
+  geom_point()
+```
+:::
+
+::: {}
+Here is a plot with blue points.
+
+```{r echo=FALSE}
+mpg %>% 
+  ggplot(aes(displ, hwy)) + 
+  geom_point(color = "blue")
+```
+:::
+
+::::
+
+## Note boxes aka "div tips"
+
+- Create a .css file (e.g. `/css/custom.css`) with the styling info
+- Save an icon image (will be referenced in your .css code)
+- Use the `:::` syntax, which is converted to `<div>` tags by Pandoc
+
+:::lightbulb
+Here is a beautiful note box. You can customize this to look however you want. Credit: [Desirée de Leon](https://desiree.rbind.io/)
+:::
+
+## Include collapsable session info
+
+- use `<details>` and `<summary>` tags for output folding
+
+<details><summary>Session Info</summary>
+```{r echo=FALSE}
+sessioninfo::session_info()
+```
+</details>
+
+# Resources 
+
+- [Section 5.8](https://bookdown.org/yihui/rmarkdown-cookbook/multi-column.html) of R Markdown Cookbook on multi-column layouts
+
+- [Blog post](https://desiree.rbind.io/post/2019/making-tip-boxes-with-bookdown-and-rmarkdown/) on creating custom div tips by Desirée de Leon
+
+- [Section 7.12](https://bookdown.org/yihui/rmarkdown-cookbook/details-tag.html) of R Markdown Cookbook on the `<details>` disclosure element
+
+- [A complete guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
