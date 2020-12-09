@@ -65,6 +65,7 @@ penguins %>%
 # Child documents
 
 - The `child ` option takes a character vector of paths to the child document(s)
+- You can alternatively compile child documents using `knitr::knit_child()` inside the parent document
 
 ```{r child="child_docs/another_plot.Rmd", fig.cap="Another plot"}
 ```
