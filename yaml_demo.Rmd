@@ -93,4 +93,4 @@ penguins %>%
 # Resources 
 
 - [Bootswatch themes](https://bootswatch.com/3/)
-- [Chapter 3.1](https://bookdown.org/yihui/rmarkdown/html-document.html) of *R Mardown:The Definitive Guide*
+- [Chapter 3.1](https://bookdown.org/yihui/rmarkdown/html-document.html) of *R Markdown:The Definitive Guide*
