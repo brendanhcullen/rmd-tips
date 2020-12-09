@@ -93,4 +93,7 @@ penguins %>%
 # Resources 
 
 - [Bootswatch themes](https://bootswatch.com/3/)
-- [Chapter 3.1](https://bookdown.org/yihui/rmarkdown/html-document.html) of *R Markdown:The Definitive Guide*
+
+- [Section 3.1](https://bookdown.org/yihui/rmarkdown/html-document.html) of R Markdown:The Definitive Guide
+
+- [Section 17.4](https://bookdown.org/yihui/rmarkdown-cookbook/parameterized-reports.html) of R Markdown Cookbook on parameterized reports
