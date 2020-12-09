@@ -8,7 +8,7 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, purl=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
@@ -22,12 +22,7 @@ library(palmerpenguins)
 
 # Penguin bill dimensions
 
-```{r echo=FALSE}
-plot_or_not <-  TRUE
-```
-
-
-```{r penguins-plot, eval=plot_or_not, fig.path="my_figs/", dev=c("png","pdf"), dev.args=list(family='Palatino'), fig.cap = "My amazing penguins plot"}
+```{r penguins-plot, fig.path="my_figs/", dev=c("png","pdf"), dev.args=list(family='Palatino'), fig.cap = "My amazing penguins plot"}
 penguins %>%
   ggplot(aes(
     x = bill_length_mm,
@@ -66,7 +61,14 @@ penguins %>%
 - use `dev=c("png","pdf")` to save an both .png and .pdf
 - use `dev.args=list(family='Palatino')` to change font in .pdf output
 - use `fig.cap` to automatically add a figure caption
-- use `eval = <boolean_var>` for conditional evaluation
+
+# Child documents
+
+- The `child ` option takes a character vector of paths to the child document(s)
+
+```{r child="child_docs/another_plot.Rmd", fig.cap="Another plot"}
+```
+
 
 # Extracting R code
 

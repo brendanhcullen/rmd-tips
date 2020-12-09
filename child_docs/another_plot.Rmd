@@ -1,0 +1,11 @@
+---
+title: "another plot"
+output: html_document
+---
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
