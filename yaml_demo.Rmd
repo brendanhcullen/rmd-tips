@@ -97,3 +97,5 @@ penguins %>%
 - [Section 3.1](https://bookdown.org/yihui/rmarkdown/html-document.html) of R Markdown:The Definitive Guide
 
 - [Section 17.4](https://bookdown.org/yihui/rmarkdown-cookbook/parameterized-reports.html) of R Markdown Cookbook on parameterized reports
+
+- [One R Markdown Document, Fourteen Demos](https://rstudio.com/resources/rstudioconf-2020/one-r-markdown-document-fourteen-demos/), talk by Yihui at rstudio::conf 2020 on different output formats 
