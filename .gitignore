@@ -7,3 +7,4 @@ public/
 .secrets
 *.html
 /my_figs
+*.R
